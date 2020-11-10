@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-service-books
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: k8s-service-books
+  template:
+    metadata:
+      labels:
+        app: k8s-service-books
+    spec:
+      containers:
+        - name: service-books
+          image: service-books:latest
+          imagePullPolicy: Never
+          ports:
+           - containerPort: 8081
+          readinessProbe:
+            httpGet:
+              port: 8081
+              path: /books/actuator/health/readiness
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              port: 8081
+              path: /books/actuator/health/liveness
+            initialDelaySeconds: 30
+            periodSeconds: 10

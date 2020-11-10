@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-service-orders
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: k8s-service-orders
+  template:
+    metadata:
+      labels:
+        app: k8s-service-orders
+    spec:
+      containers:
+        - name: service-orders
+          image: service-orders:latest
+          imagePullPolicy: Never
+          ports:
+           - containerPort: 8082
+          readinessProbe:
+            httpGet:
+              port: 8082
+              path: /orders/actuator/health/readiness
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              port: 8082
+              path: /orders/actuator/health/liveness
+            initialDelaySeconds: 30
+            periodSeconds: 10

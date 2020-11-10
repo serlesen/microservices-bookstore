@@ -28,3 +28,7 @@ From the deployment, I've added a Kubernetes service to have my dummy applicatio
 And finally, exposed the dummy service to my localhost from Minikube. This way, I can request it.
 
 
+## Chapter 2
+
+
+
