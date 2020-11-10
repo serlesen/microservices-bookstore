@@ -1,0 +1,32 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /books
+
+management:
+  health:
+    livenessState.enabled: true
+    readinessState.enabled: true
+  endpoint.health.probes.enabled: true
+
+spring:
+  application.name: service-books
+  datasource:
+    platform: postgres
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://db:5432/bookstore
+    username: service_books
+    password: srv-bks
+    initialization-mode: always
+  jpa:
+     database-platform: org.hibernate.dialect.PostgreSQLDialect
+     show-sql: false
+     hibernate:
+       ddl-auto: validate
+  jackson:
+    deserialization:
+      FAIL_ON_IGNORED_PROPERTIES: false
+    serialization:
+      INDENT_OUTPUT: false
+      WRITE_DATES_AS_TIMESTAMPS: false
+      WRITE_BIGDECIMAL_AS_PLAIN: true

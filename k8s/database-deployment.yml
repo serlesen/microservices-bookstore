@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-database
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8s-database
+  template:
+    metadata:
+      labels:
+        app: k8s-database
+    spec:
+      containers:
+        - name: bookstore-database
+          image: bookstore-database:latest
+          imagePullPolicy: Never
+          env:
+           - name: POSTGRES_HOST_AUTH_METHOD
+             value: trust
+           - name: POSTGRES_USER
+             value: admin
+           - name: POSTGRES_PASSWORD
+             value: admin
+           - name: POSTGRES_DB
+             value: bookstore 
+          ports:
+           - containerPort: 5432

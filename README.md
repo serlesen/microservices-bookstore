@@ -9,6 +9,14 @@ To implement this architecture, I used:
 
 This repository is related to a playlist video: https://www.youtube.com/playlist?list=PLab_if3UBk9-BjDP7Yh4uiy8z0pEd14Tp
 
+### Database on localhost
+
+To create the database on localhost, run the following commands:
+´´´
+cd database-image
+docker build . -t microservices-bookstore-db
+docker run -d -e POSTGRES_HOST_AUTH_METHOD=trust -e POSTGRES_USER=ser -e POSTGRES_PASSWORD=ser -e POSTGRES_DB=bookstore -p 5432:5432 microservices-bookstore-db
+´´´
 
 ## Chapter 1
 
@@ -26,5 +34,9 @@ With Kubernetes, I've declared a deployment for my packaged application, and pus
 From the deployment, I've added a Kubernetes service to have my dummy application available publicly.
 
 And finally, exposed the dummy service to my localhost from Minikube. This way, I can request it.
+
+
+## Chapter 2
+
 
 

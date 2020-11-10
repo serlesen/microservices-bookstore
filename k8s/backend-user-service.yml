@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: k8s-backend-user
+spec:
+  ports:
+    - name: 80-8080
+      port: 80
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: k8s-backend-user
+  type: LoadBalancer
