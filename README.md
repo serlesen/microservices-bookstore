@@ -31,4 +31,15 @@ And finally, exposed the dummy service to my localhost from Minikube. This way, 
 ## Chapter 2
 
 
+In the second chapter, I've used Kubernetes configuration to implement the Service Discovery pattern. For that,
+I've created a service configuration for each microservice, specifying its type to `ClusterIp` which is the
+default type. This way, all the pods of a deployment will have a unique IP. And an internal load balancer with
+a round robin strategy will balance the requests to the pods.
+
+Then, I've used the DNS record names created by Kubernetes DNS service to reach each service inside my cluster.
+I've used those DNS records to indicate at each microservice where to request the needed one.
+
+And to perform the HTTP requests, I've added the Retrofit library where I just create interfaces to communicate
+to each configured DNS easily.
+
 

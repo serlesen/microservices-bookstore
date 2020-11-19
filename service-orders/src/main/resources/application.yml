@@ -14,7 +14,7 @@ spring:
   datasource:
     platform: postgres
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://db:5432/bookstore
+    url: jdbc:postgresql://k8s-database.default.svc.cluster.local:5432/bookstore
     username: service_orders
     password: srv-ordrs
     initialization-mode: always

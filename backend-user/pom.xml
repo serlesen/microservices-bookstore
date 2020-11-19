@@ -17,6 +17,7 @@
 	<properties>
 		<lombok.version>1.18.16</lombok.version>
 		<mapstruct.version>1.4.1.Final</mapstruct.version>
+		<retrofit.version>2.9.0</retrofit.version>
 		<java.version>11</java.version>
 	</properties>
 
@@ -43,6 +44,16 @@
 			<groupId>org.mapstruct</groupId>
 			<artifactId>mapstruct-processor</artifactId>
 			<version>${mapstruct.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.squareup.retrofit2</groupId>
+			<artifactId>retrofit</artifactId>
+			<version>${retrofit.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.squareup.retrofit2</groupId>
+			<artifactId>converter-gson</artifactId>
+			<version>${retrofit.version}</version>
 		</dependency>
 
 		<dependency>
