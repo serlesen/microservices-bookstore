@@ -39,4 +39,29 @@ And finally, exposed the dummy service to my localhost from Minikube. This way, 
 ## Chapter 2
 
 
+In the second chapter, I've used Kubernetes configuration to implement the Service Discovery pattern. For that,
+I've created a service configuration for each microservice, specifying its type to `ClusterIp` which is the
+default type. This way, all the pods of a deployment will have a unique IP. And an internal load balancer with
+a round robin strategy will balance the requests to the pods.
+
+Then, I've used the DNS record names created by Kubernetes DNS service to reach each service inside my cluster.
+I've used those DNS records to indicate at each microservice where to request the needed one.
+
+And to perform the HTTP requests, I've added the Retrofit library where I just create interfaces to communicate
+to each configured DNS easily.
+
+
+## Chapter 2.2
+
+In this second part of the second chapter, I've used the library Spring Cloud Netflix Eureka to implement the
+Service Discovery pattern. The Eureka library is divided in two parts: the server and the clients. The server
+is the one dedicated to have a list with all the available microservices in the architecture. And the clients
+will register itselves into the server. Even if multiple instances of the same microservice register into the
+server, it won't cause a problem, the server will use a round robin strategy to redirect the traffic to both
+instances.
+
+To request the microservices, I've used the Feign client library. The Feign library is similar basically Retrofit
+adapted to Eureka. The Eureka client will tell the Feign client the address of the target microservice to
+request. This way, I only need the name of the microservice and not its address to request it.
+
 

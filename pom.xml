@@ -16,7 +16,7 @@
     <modules>
         <module>backend-user</module>
         <module>service-books</module>
-        <module>service-orders</module>
+        <module>service-discovery</module>
         <module>service-prices</module>
     </modules>
  

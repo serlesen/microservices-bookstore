@@ -1,5 +1,5 @@
 server:
-  port: 8083
+  port: 0
   servlet:
     context-path: /prices
 
@@ -14,7 +14,7 @@ spring:
   datasource:
     platform: postgres
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://db:5432/bookstore
+    url: jdbc:postgresql://localhost:5432/bookstore
     username: service_prices
     password: srv-prcs
     initialization-mode: always
@@ -30,3 +30,8 @@ spring:
       INDENT_OUTPUT: false
       WRITE_DATES_AS_TIMESTAMPS: false
       WRITE_BIGDECIMAL_AS_PLAIN: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka

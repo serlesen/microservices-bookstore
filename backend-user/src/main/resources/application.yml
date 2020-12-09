@@ -18,3 +18,8 @@ spring:
       INDENT_OUTPUT: false
       WRITE_DATES_AS_TIMESTAMPS: false
       WRITE_BIGDECIMAL_AS_PLAIN: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
