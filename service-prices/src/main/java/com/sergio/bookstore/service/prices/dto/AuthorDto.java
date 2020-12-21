@@ -1,4 +1,4 @@
-package com.sergio.bookstore.backend.user.dto;
+package com.sergio.bookstore.service.prices.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,9 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Data
-public class BookDto {
+public class AuthorDto {
 
-    private String title;
-    private AuthorDto author;
-
+    private String firstName;
+    private String lastName;
 }

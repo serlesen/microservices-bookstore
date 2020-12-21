@@ -14,5 +14,5 @@ import lombok.NoArgsConstructor;
 public class PriceDto {
 
     private BigDecimal price;
-    private long bookId;
+    private BookDto book;
 }

@@ -1,7 +1,5 @@
 server:
   port: 8080
-  servlet:
-    context-path: /user
 
 management:
   health:
@@ -11,13 +9,18 @@ management:
 
 spring:
   application.name: backend-user
-  jackson:
-    deserialization:
-      FAIL_ON_IGNORED_PROPERTIES: false
-    serialization:
-      INDENT_OUTPUT: false
-      WRITE_DATES_AS_TIMESTAMPS: false
-      WRITE_BIGDECIMAL_AS_PLAIN: true
+  cloud:
+    gateway:
+      discovery.locator.enabled: true
+      routes:
+        - id: service-books-id
+          uri: lb://service-books
+          predicates:
+            Path=/books/**
+        - id: service-prices-id
+          uri: lb://service-prices
+          predicates:
+            Path=/prices/**
 
 eureka:
   client:

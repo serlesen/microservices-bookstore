@@ -4,7 +4,7 @@
  
     <groupId>com.sergio.bookstore</groupId>
     <artifactId>microservices-bookstore</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.3-SNAPSHOT</version>
     <name>Microservices bookstore</name>
     <packaging>pom</packaging>
 
