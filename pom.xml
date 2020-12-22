@@ -18,6 +18,7 @@
         <module>service-books</module>
         <module>service-discovery</module>
         <module>service-prices</module>
+        <module>service-users</module>
     </modules>
  
 </project>

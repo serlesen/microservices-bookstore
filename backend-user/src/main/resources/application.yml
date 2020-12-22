@@ -2,10 +2,8 @@ server:
   port: 8080
 
 management:
-  health:
-    livenessState.enabled: true
-    readinessState.enabled: true
-  endpoint.health.probes.enabled: true
+  endpoint.gateway.enabled: true
+  endpoints.web.exposure.include: gateway
 
 spring:
   application.name: backend-user
@@ -17,10 +15,18 @@ spring:
           uri: lb://service-books
           predicates:
             Path=/books/**
+          filters:
+            - AuthFilter
         - id: service-prices-id
           uri: lb://service-prices
           predicates:
             Path=/prices/**
+          filters:
+            - AuthFilter
+        - id: service-users-sign-in
+          uri: lb://service-users
+          predicates:
+            Path=/users/signIn
 
 eureka:
   client:

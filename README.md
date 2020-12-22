@@ -65,3 +65,20 @@ adapted to Eureka. The Eureka client will tell the Feign client the address of t
 request. This way, I only need the name of the microservice and not its address to request it.
 
 
+## Chapter 3
+
+The third chapter is dedicated to the API Gateway. This time, I show how to use Spring Cloud Gateway to redirect
+the traffic to some inner microservices. The previous backend-user microservice dissapeard as itself. The
+requests inside my microservice architecture will be done by the private microservices now. Each microservice has
+the responsability to build a complete response before returning it to the user.
+
+The first part is dedicated to use this library using only the configuration file. Indicating the rules to redirect
+each URL given its path to a dedicated microservice. The API Gateway will use the Service Discovery to match
+the inner microservices with their name.
+
+In the second part, I want to implement a more complex Gateway using the authentication. I want that before redirecting
+the request to the inner services, I ensure that the request has the correct headers with the authenticated information.
+This time, I must use the Java code to implement this pattern. Before redirecting the request to the target microservice
+I make a request to the authentication service to ensure the correct headers, then the request continue.
+
+

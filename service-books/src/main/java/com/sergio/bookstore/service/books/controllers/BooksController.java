@@ -1,5 +1,7 @@
 package com.sergio.bookstore.service.books.controllers;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.sergio.bookstore.service.books.dto.BookDto;
 import com.sergio.bookstore.service.books.services.BookService;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +19,7 @@ public class BooksController {
     private final BookService bookService;
 
     @GetMapping("/{bookId}")
-    public ResponseEntity<BookDto> getOneBook(@PathVariable long bookId) {
+    public ResponseEntity<BookDto> getOneBook(@PathVariable long bookId, HttpServletRequest request) {
         log.info("Looking for book {}", bookId);
         return ResponseEntity.ok(bookService.getBook(bookId));
     }
