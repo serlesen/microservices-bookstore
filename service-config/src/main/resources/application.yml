@@ -1,0 +1,20 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /config
+
+management:
+  health:
+    livenessState.enabled: true
+    readinessState.enabled: true
+  endpoint.health.probes.enabled: true
+
+spring:
+  application.name: service-config
+  cloud.config.server.git.uri: file://${user.home}/personal/config-repo
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka

@@ -4,7 +4,7 @@
  
     <groupId>com.sergio.bookstore</groupId>
     <artifactId>microservices-bookstore</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.4-SNAPSHOT</version>
     <name>Microservices bookstore</name>
     <packaging>pom</packaging>
 
@@ -16,6 +16,7 @@
     <modules>
         <module>backend-user</module>
         <module>service-books</module>
+        <module>service-config</module>
         <module>service-discovery</module>
         <module>service-prices</module>
         <module>service-users</module>

@@ -10,7 +10,6 @@ management:
   endpoint.health.probes.enabled: true
 
 spring:
-  application.name: service-users
   datasource:
     platform: postgres
     driver-class-name: org.postgresql.Driver
