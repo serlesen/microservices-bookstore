@@ -14,8 +14,11 @@ spring:
     platform: postgres
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/bookstore
-    username: service_users
-    password: srv-usrs
+    # the following values must be added in the vault as following:
+    # vault kv put secret/service-users spring.datasource.username=service_users
+    # vault kv put secret/service-users spring.datasource.password=srv-usrs
+    # username: service_users
+    # password: srv-usrs
     initialization-mode: always
     jpa:
       database-platform: org.hibernate.dialect.PostgreSQLDialect

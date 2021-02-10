@@ -10,13 +10,15 @@ management:
   endpoint.health.probes.enabled: true
 
 spring:
-  application.name: service-prices
   datasource:
     platform: postgres
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/bookstore
-    username: service_prices
-    password: srv-prcs
+    # the following values must be added in the vault as following:
+    # vault kv put secret/service-prices spring.datasource.username=service_prices
+    # vault kv put secret/service-prices spring.datasource.password=srv-prcs
+    # username: service_prices
+    # password: srv-prcs
     initialization-mode: always
     jpa:
       database-platform: org.hibernate.dialect.PostgreSQLDialect
