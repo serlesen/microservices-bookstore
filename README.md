@@ -82,3 +82,13 @@ This time, I must use the Java code to implement this pattern. Before redirectin
 I make a request to the authentication service to ensure the correct headers, then the request continue.
 
 
+## Chapter 4
+
+This fourth chapter handles the distributed configuration with Spring Cloud Config. Having a distributed configuration
+ease the way an application is loaded and started. As the configurations are fetch from a Git repository, I ensure
+they are always up to date.
+
+The second part of the video, handles the distributed configuration against two sources: Vault for the username and passwords
+to connect to the database, and Git for the rest. This means that I must set a priority order in the configuration sources.
+Thus, Vault requires some additional configuraitons, as the authentication via token.
+

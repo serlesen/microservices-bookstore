@@ -10,8 +10,20 @@ management:
   endpoint.health.probes.enabled: true
 
 spring:
+  profiles:
+    active: git, vault
   application.name: service-config
-  cloud.config.server.git.uri: file://${user.home}/personal/config-repo
+  cloud.config.server:
+    vault:
+      host: 127.0.0.1
+      port: 8200
+      order: 1
+      kv-version: 2
+      authentication: TOKEN
+      token: <root-token>
+    git:
+      uri: file://${user.home}/personal/config-repo
+      order: 2
 
 
 eureka:
