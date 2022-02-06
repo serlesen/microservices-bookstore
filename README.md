@@ -92,3 +92,19 @@ The second part of the video, handles the distributed configuration against two 
 to connect to the database, and Git for the rest. This means that I must set a priority order in the configuration sources.
 Thus, Vault requires some additional configuraitons, as the authentication via token.
 
+
+
+## Chapter 5
+
+In this fifth chapter, I show how to use Apache Kafka as a message broker between to microservices. I try to separate the
+need to send an email from sending the email itself. When creating a user in the database, I want an email to be sent
+as confirmation of the user's account. I want the microservice service-users to create the user's account in the database
+and the publish a message into Apache Kafka. Another microservice, service-mails, will be listenning to Apache Kafka for
+new messages to create and send an email.
+
+For this purpose, the publisher, service-users, will be configured to send messages to Apache Kafka. And the consumer,
+service-mails, will be configured to read messages from Apache Kafka. Both microservices will only need the Spring dependency
+of Apache Kafka. Both microservice will also need to configure the connection to Apache Kafka. And then, the publisher will
+need to configure the template to write messages, and the consumer will need to configure the topic and consumer groups to
+read messages.
+

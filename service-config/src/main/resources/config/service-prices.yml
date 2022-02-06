@@ -17,8 +17,8 @@ spring:
     # the following values must be added in the vault as following:
     # vault kv put secret/service-prices spring.datasource.username=service_prices
     # vault kv put secret/service-prices spring.datasource.password=srv-prcs
-    # username: service_prices
-    # password: srv-prcs
+    username: service_prices
+    password: srv-prcs
     initialization-mode: always
     jpa:
       database-platform: org.hibernate.dialect.PostgreSQLDialect

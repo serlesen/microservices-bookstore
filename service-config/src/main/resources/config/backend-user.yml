@@ -26,7 +26,7 @@ spring:
         - id: service-users-sign-in
           uri: lb://service-users
           predicates:
-            Path=/users/signIn
+            - Path=/users/signIn,/users/signUp
 
 eureka:
   client:

@@ -78,4 +78,19 @@ public class UserService {
                 .signWith(SignatureAlgorithm.HS256, secretKey)
                 .compact();
     }
+
+    public UserDto signUp(CredentialsDto credentialsDto) {
+        var userOptional = userRepository.findByLogin(credentialsDto.getLogin());
+        if (userOptional.isPresent()) {
+            throw new AppException("User already in database", HttpStatus.BAD_REQUEST);
+        }
+
+        var user = userMapper.toBookstoreUser(
+                credentialsDto, passwordEncoder.encode(CharBuffer.wrap(credentialsDto.getPassword())));
+        userRepository.save(user);
+
+        return UserDto.builder()
+                .login(user.getLogin())
+                .build();
+    }
 }

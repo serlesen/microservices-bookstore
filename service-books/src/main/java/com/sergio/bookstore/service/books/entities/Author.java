@@ -36,7 +36,7 @@ public class Author {
             name = "sequence_author_generator",
             strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
             parameters = {
-                    @Parameter(name = "sequence_name", value = "service_books.seq_author"),
+                    @Parameter(name = "sequence_name", value = "service_books.author_id_seq"),
                     @Parameter(name = "initial_value", value = "1000"),
                     @Parameter(name = "increment_size", value = "1")
             }

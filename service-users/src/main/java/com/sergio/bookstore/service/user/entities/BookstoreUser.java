@@ -31,7 +31,7 @@ public class BookstoreUser {
             name = "sequence_user_generator",
             strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
             parameters = {
-                    @Parameter(name = "sequence_name", value = "service_users.seq_user"),
+                    @Parameter(name = "sequence_name", value = "service_users.bookstore_user_id_seq"),
                     @Parameter(name = "initial_value", value = "1000"),
                     @Parameter(name = "increment_size", value = "1")
             }

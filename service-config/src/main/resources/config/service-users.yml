@@ -17,8 +17,8 @@ spring:
     # the following values must be added in the vault as following:
     # vault kv put secret/service-users spring.datasource.username=service_users
     # vault kv put secret/service-users spring.datasource.password=srv-usrs
-    # username: service_users
-    # password: srv-usrs
+    username: service_users
+    password: srv-usrs
     initialization-mode: always
     jpa:
       database-platform: org.hibernate.dialect.PostgreSQLDialect
@@ -37,3 +37,5 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
+
+kafka.bootstrapAddress: localhost:9092

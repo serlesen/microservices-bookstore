@@ -17,8 +17,8 @@ spring:
     # the following values must be added in the vault as following:
     # vault kv put secret/service-books spring.datasource.username=service_books
     # vault kv put secret/service-books spring.datasource.password=srv-bks
-    # username: service_books
-    # password: srv-bks
+    username: service_books
+    password: srv-bks
     initialization-mode: always
   jpa:
      database-platform: org.hibernate.dialect.PostgreSQLDialect

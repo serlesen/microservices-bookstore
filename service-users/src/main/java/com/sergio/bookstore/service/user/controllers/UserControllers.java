@@ -2,6 +2,7 @@ package com.sergio.bookstore.service.user.controllers;
 
 import com.sergio.bookstore.service.user.dto.CredentialsDto;
 import com.sergio.bookstore.service.user.dto.UserDto;
+import com.sergio.bookstore.service.user.services.MailService;
 import com.sergio.bookstore.service.user.services.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserControllers {
 
     private final UserService userService;
+    private final MailService mailService;
 
     @PostMapping("/signIn")
     public ResponseEntity<UserDto> signIn(@RequestBody CredentialsDto credentialsDto) {
@@ -28,5 +30,13 @@ public class UserControllers {
     public ResponseEntity<UserDto> signIn(@RequestParam String token) {
         log.info("Trying to validate token {}", token);
         return ResponseEntity.ok(userService.validateToken(token));
+    }
+
+    @PostMapping("/signUp")
+    public ResponseEntity<UserDto> signUp(@RequestBody CredentialsDto credentialsDto) {
+        log.info("Creating new user {}", credentialsDto.getLogin());
+        UserDto user = userService.signUp(credentialsDto);
+        mailService.sendUserWelcomeMail(user);
+        return ResponseEntity.ok(user);
     }
 }
