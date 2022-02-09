@@ -14,4 +14,10 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
 
-kafka.bootstrapAddress: localhost:9092
+spring:
+  cloud:
+    stream:
+      bindings:
+        listenMessages-in-0.destination: mails
+      binder:
+        brokers: localhost:9092

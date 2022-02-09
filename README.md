@@ -108,3 +108,8 @@ of Apache Kafka. Both microservice will also need to configure the connection to
 need to configure the template to write messages, and the consumer will need to configure the topic and consumer groups to
 read messages.
 
+### Kafka on localhost
+
+To run Apache Kafka on localhost, follow the instructions at https://kafka.apache.org/quickstart.
+
+

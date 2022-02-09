@@ -10,13 +10,11 @@ management:
   endpoint.health.probes.enabled: true
 
 spring:
+  application.name: service-users
   datasource:
     platform: postgres
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/bookstore
-    # the following values must be added in the vault as following:
-    # vault kv put secret/service-users spring.datasource.username=service_users
-    # vault kv put secret/service-users spring.datasource.password=srv-usrs
     username: service_users
     password: srv-usrs
     initialization-mode: always
@@ -32,10 +30,14 @@ spring:
       INDENT_OUTPUT: false
       WRITE_DATES_AS_TIMESTAMPS: false
       WRITE_BIGDECIMAL_AS_PLAIN: true
+  cloud:
+    stream:
+      binder:
+        brokers: localhost:9092
+
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
 
-kafka.bootstrapAddress: localhost:9092
