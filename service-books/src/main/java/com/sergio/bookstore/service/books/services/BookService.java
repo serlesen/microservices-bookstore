@@ -14,11 +14,14 @@ public class BookService {
 
     private final BookRepository bookRepository;
     private final BookMapper bookMapper;
+    private final PriceService priceService;
 
     public BookDto getBook(long bookId) {
         BookDto bookDto = bookRepository.findById(bookId)
                 .map(bookMapper::toBookDto)
                 .orElseThrow(() -> new AppException("No book found with ID " + bookId, HttpStatus.NOT_FOUND));
+
+        bookDto.setPrice(priceService.getPrice(bookId, bookDto));
 
         return bookDto;
     }

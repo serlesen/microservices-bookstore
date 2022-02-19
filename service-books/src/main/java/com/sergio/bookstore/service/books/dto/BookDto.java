@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
 public class BookDto {
 
     private String title;
-    private AuthorDto author;
     private BigDecimal price;
 
 }

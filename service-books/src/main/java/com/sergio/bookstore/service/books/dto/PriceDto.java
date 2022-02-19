@@ -5,12 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Data
-public class AuthorDto {
+public class PriceDto {
 
-    private String firstName;
-    private String lastName;
+    private BigDecimal price;
 }

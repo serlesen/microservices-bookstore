@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.sergio.bookstore</groupId>
 	<artifactId>service-discovery</artifactId>
-	<version>0.0.5-SNAPSHOT</version>
+	<version>0.0.6-SNAPSHOT</version>
 	<name>Service Discovery</name>
 	<description>Demo project for Spring Boot</description>
 

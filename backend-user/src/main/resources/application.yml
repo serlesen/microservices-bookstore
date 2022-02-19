@@ -17,12 +17,6 @@ spring:
             Path=/books/**
           filters:
             - AuthFilter
-        - id: service-prices-id
-          uri: lb://service-prices
-          predicates:
-            Path=/prices/**
-          filters:
-            - AuthFilter
         - id: service-users-sign-in
           uri: lb://service-users
           predicates:

@@ -36,7 +36,6 @@ public class UserControllers {
     public ResponseEntity<UserDto> signUp(@RequestBody CredentialsDto credentialsDto) {
         log.info("Creating new user {}", credentialsDto.getLogin());
         UserDto user = userService.signUp(credentialsDto);
-        mailService.sendUserWelcomeMail(user);
         return ResponseEntity.ok(user);
     }
 }

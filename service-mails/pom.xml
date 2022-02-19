@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.sergio.bookstore</groupId>
 	<artifactId>service-mails</artifactId>
-	<version>0.0.5-SNAPSHOT</version>
+	<version>0.0.6-SNAPSHOT</version>
 	<name>Mails Service</name>
 	<description>Mails Service of the bookstore microservices architecture</description>
 

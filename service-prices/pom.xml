@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.sergio.bookstore</groupId>
 	<artifactId>service-prices</artifactId>
-	<version>0.0.5-SNAPSHOT</version>
+	<version>0.0.6-SNAPSHOT</version>
 	<name>Prices Service</name>
 	<description>Prices Service of the bookstore microservice architecture</description>
 
@@ -77,10 +77,6 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
 	</dependencies>
 
