@@ -1,11 +1,4 @@
-package com.sergio.bookstore.service.user.entities;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+package com.sergio.bookstore.service.batch.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,8 +6,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
+import org.springframework.data.annotation.CreatedDate;
 
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -51,4 +47,5 @@ public class BookstoreUser {
 
     @Column(nullable = false)
     private long age;
+
 }

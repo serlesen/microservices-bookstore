@@ -113,3 +113,25 @@ read messages.
 To run Apache Kafka on localhost, follow the instructions at https://kafka.apache.org/quickstart.
 
 
+## Chapter 6
+
+In this new chapter, I explain the Circuit Breaker pattern. I implement it with both Hystrix and Resilience4J.
+
+The Circuit Breaker pattern allows to return a default value to HTTP requests when the subsequent service is unavailable.
+As the subsequent service is unavailable, trying to request it may fall into timeouts or unhandled exceptions. The Circuit
+Breaker will be notified by this behavior and switch to a default value. Meanwhile, it will check until the service
+is back.
+
+
+## Chapter 7
+
+In this chapter, I build a new microservice which will handle some batch jobs with Spring Batch. Spring Batch can handle
+long running batches within splitted transactions. It will split the data in chunks and handle each chunk separatly.
+
+There are two ways to run batch jobs, with step and with tasklets. With steps, I can configure a Reader, a Processor and
+a Writer. All are optional. The Reader will just read some information (from a database, file or other) and store it in 
+the step context. Then, the processor will read from the context to perform the necessary modifications and store again 
+the results in the context. Finally, the Wirter will read the modified data and write it in the desired destination 
+(datasource, file or other).
+
+

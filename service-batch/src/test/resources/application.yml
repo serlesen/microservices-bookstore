@@ -1,7 +1,7 @@
 server:
-  port: 8082
+  port: 0
   servlet:
-    context-path: /orders
+    context-path: /batch
 
 management:
   health:
@@ -10,19 +10,20 @@ management:
   endpoint.health.probes.enabled: true
 
 spring:
-  application.name: service-orders
+  application.name: service-batch
   datasource:
     platform: postgres
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/bookstore
-    username: service_orders
-    password: srv-ordrs
+    jdbc-url: jdbc:postgresql://localhost:5432/bookstore
+    username: service_users
+    password: srv-usrs
     initialization-mode: always
     jpa:
       database-platform: org.hibernate.dialect.PostgreSQLDialect
       show-sql: false
       hibernate:
-        ddl-auto: validate
+        ddl-auto: create
   jackson:
     deserialization:
       FAIL_ON_IGNORED_PROPERTIES: false
@@ -30,3 +31,11 @@ spring:
       INDENT_OUTPUT: false
       WRITE_DATES_AS_TIMESTAMPS: false
       WRITE_BIGDECIMAL_AS_PLAIN: true
+  batch:
+    initialize-schema: always
+    schema: classpath:org/springframework/batch/core/schema-postgresql.sql
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
