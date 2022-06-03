@@ -1,6 +1,10 @@
 
 server.port: 8761
 
+spring:
+  zipkin:
+    baseUrl: http://127.0.0.1:9411/
+
 eureka:
   client:
     register-with-eureka: false

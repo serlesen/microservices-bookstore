@@ -8,6 +8,7 @@ import java.util.Optional;
 import javax.annotation.PostConstruct;
 
 import com.sergio.bookstore.service.user.dto.CredentialsDto;
+import com.sergio.bookstore.service.user.dto.UserCreationDto;
 import com.sergio.bookstore.service.user.dto.UserDto;
 import com.sergio.bookstore.service.user.entities.BookstoreUser;
 import com.sergio.bookstore.service.user.exceptions.AppException;
@@ -79,14 +80,14 @@ public class UserService {
                 .compact();
     }
 
-    public UserDto signUp(CredentialsDto credentialsDto) {
-        var userOptional = userRepository.findByLogin(credentialsDto.getLogin());
+    public UserDto signUp(UserCreationDto userCreationDto) {
+        var userOptional = userRepository.findByLogin(userCreationDto.getLogin());
         if (userOptional.isPresent()) {
             throw new AppException("User already in database", HttpStatus.BAD_REQUEST);
         }
 
         var user = userMapper.toBookstoreUser(
-                credentialsDto, passwordEncoder.encode(CharBuffer.wrap(credentialsDto.getPassword())));
+                userCreationDto, passwordEncoder.encode(CharBuffer.wrap(userCreationDto.getPassword())));
         userRepository.save(user);
 
         return UserDto.builder()

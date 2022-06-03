@@ -33,6 +33,8 @@ spring:
   batch:
     initialize-schema: always
     schema: classpath:org/springframework/batch/core/schema-postgresql.sql
+  zipkin:
+    baseUrl: http://127.0.0.1:9411/
 
 eureka:
   client:

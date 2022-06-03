@@ -18,6 +18,11 @@ docker build . -t microservices-bookstore-db
 docker run -d -e POSTGRES_HOST_AUTH_METHOD=trust -e POSTGRES_USER=ser -e POSTGRES_PASSWORD=ser -e POSTGRES_DB=bookstore -p 5432:5432 microservices-bookstore-db
 ´´´
 
+### Apache Kafka on localhost
+
+The service-users and service-mails need Apache Kafka to be running. Download it from https://kafka.apache.org/downloads
+and run it as indicated at https://kafka.apache.org/quickstart.
+
 ## Chapter 1
 
 In this first chapter, I've created a dummy application with Spring Boot. This application will only have
@@ -134,4 +139,16 @@ the step context. Then, the processor will read from the context to perform the 
 the results in the context. Finally, the Wirter will read the modified data and write it in the desired destination 
 (datasource, file or other).
 
+
+## Chapter 8
+
+In this chapter I use Sleuth to trace the requests between the microservices. Sleuth will allow to identify the requests
+from the source microservice to the target microservices. Each log will be annotated with a Trace ID and a Span ID. The
+Trace ID will be the same for all the logs created in all the microservices from the same request. The Span ID will maintain
+the value within a single microservice for a single request. With this strategy, I can easily identify all the logs generated
+in all the microservices from a single user request.
+
+On the other side, Zipkin will group all the information about the Traces and Spans. This way I can know the time consuming
+by each step for a single request. Zipkin is a trace application to allow identify slow processes in a microservices architecture.
+ 
 

@@ -32,6 +32,8 @@ spring:
       INDENT_OUTPUT: false
       WRITE_DATES_AS_TIMESTAMPS: false
       WRITE_BIGDECIMAL_AS_PLAIN: true
+  zipkin:
+    baseUrl: http://127.0.0.1:9411/
 
 eureka:
   client:

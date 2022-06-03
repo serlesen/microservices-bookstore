@@ -1,6 +1,7 @@
 package com.sergio.bookstore.service.user.controllers;
 
 import com.sergio.bookstore.service.user.dto.CredentialsDto;
+import com.sergio.bookstore.service.user.dto.UserCreationDto;
 import com.sergio.bookstore.service.user.dto.UserDto;
 import com.sergio.bookstore.service.user.services.MailService;
 import com.sergio.bookstore.service.user.services.UserService;
@@ -33,9 +34,10 @@ public class UserControllers {
     }
 
     @PostMapping("/signUp")
-    public ResponseEntity<UserDto> signUp(@RequestBody CredentialsDto credentialsDto) {
-        log.info("Creating new user {}", credentialsDto.getLogin());
-        UserDto user = userService.signUp(credentialsDto);
+    public ResponseEntity<UserDto> signUp(@RequestBody UserCreationDto userCreationDto) {
+        log.info("Creating new user {}", userCreationDto.getLogin());
+        UserDto user = userService.signUp(userCreationDto);
+        mailService.sendUserWelcomeMail(user);
         return ResponseEntity.ok(user);
     }
 }

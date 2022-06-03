@@ -1,6 +1,7 @@
 package com.sergio.bookstore.service.user.mappers;
 
 import com.sergio.bookstore.service.user.dto.CredentialsDto;
+import com.sergio.bookstore.service.user.dto.UserCreationDto;
 import com.sergio.bookstore.service.user.dto.UserDto;
 import com.sergio.bookstore.service.user.entities.BookstoreUser;
 import org.mapstruct.Mapper;
@@ -15,5 +16,5 @@ public interface UserMapper {
     UserDto toUserDto(BookstoreUser user, String token);
 
     @Mapping(source = "encodedPassword", target = "password")
-    BookstoreUser toBookstoreUser(CredentialsDto userDto, String encodedPassword);
+    BookstoreUser toBookstoreUser(UserCreationDto userDto, String encodedPassword);
 }

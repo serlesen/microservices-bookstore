@@ -21,3 +21,5 @@ spring:
         listenMessages-in-0.destination: mails
       binder:
         brokers: localhost:9092
+  zipkin:
+    baseUrl: http://127.0.0.1:9411/

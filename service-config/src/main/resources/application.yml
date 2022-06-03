@@ -24,6 +24,8 @@ spring:
     git:
       uri: file://${user.home}/personal/config-repo
   #    order: 2
+  zipkin:
+    baseUrl: http://127.0.0.1:9411/
 
 
 eureka:
